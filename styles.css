@@ -1,0 +1,372 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(180deg, #C5D5E8 0%, #D5C9E5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Top Header */
+.top-header {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-link {
+    color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.header-link:hover {
+    text-decoration: underline;
+}
+
+.apps-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.apps-button:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.profile-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7B68EE, #9370DB);
+    border: none;
+    cursor: pointer;
+}
+
+.profile-button:hover {
+    opacity: 0.9;
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+}
+
+/* Google Logo */
+.logo-container {
+    margin-bottom: 28px;
+}
+
+.google-logo {
+    width: 272px;
+    height: 92px;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 12px 20px;
+    width: 100%;
+    max-width: 584px;
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.18);
+    margin-bottom: 30px;
+    gap: 10px;
+}
+
+.search-bar:hover {
+    box-shadow: 0 2px 8px rgba(32, 33, 36, 0.28);
+}
+
+.search-icon {
+    font-size: 18px;
+    color: #9aa0a6;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #202124;
+}
+
+.search-input::placeholder {
+    color: #9aa0a6;
+}
+
+.voice-icon,
+.lens-icon {
+    font-size: 18px;
+    color: #4285f4;
+    cursor: pointer;
+}
+
+.ai-mode {
+    background: transparent;
+    border: 1px solid #dadce0;
+    border-radius: 16px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #5f6368;
+    cursor: pointer;
+}
+
+/* Shortcuts Container */
+.shortcuts-container {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.shortcut {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 112px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.shortcut:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.shortcut-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+}
+
+.gmail-icon {
+    background-color: #E8F0FE;
+    color: #EA4335;
+}
+
+.nextdot-icon {
+    background-color: #5F9B61;
+}
+
+.messenger-icon {
+    background-color: #4F7AB8;
+}
+
+.discord-icon {
+    background-color: #E94235;
+}
+
+.translate-icon {
+    background-color: #A3C4F3;
+}
+
+.facebook-icon {
+    background-color: #4267B2;
+    font-size: 32px;
+    font-family: serif;
+}
+
+.amazon-icon {
+    background-color: #5F9B61;
+}
+
+.https-icon {
+    background-color: #8497B0;
+}
+
+.sports-icon {
+    background-color: #5F9B61;
+}
+
+.add-icon {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #5f6368;
+    font-size: 32px;
+}
+
+.shortcut-label {
+    font-size: 12px;
+    color: #202124;
+    text-align: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Continue Tabs Card */
+.continue-tabs-card {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 16px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #202124;
+}
+
+.more-options {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #5f6368;
+    padding: 4px;
+    border-radius: 50%;
+}
+
+.more-options:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.tabs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.tab-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tab-item:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.tab-favicon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+}
+
+.red-favicon {
+    background-color: #EA4335;
+}
+
+.green-favicon {
+    background-color: #5F9B61;
+}
+
+.orange-favicon {
+    background-color: #F4B400;
+}
+
+.google-favicon {
+    background-color: #4285F4;
+}
+
+.tab-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.tab-title {
+    font-size: 13px;
+    color: #202124;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tab-meta {
+    font-size: 11px;
+    color: #5f6368;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.see-more-button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 8px;
+    background: none;
+    border: none;
+    color: #1a73e8;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.see-more-button:hover {
+    background-color: rgba(26, 115, 232, 0.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .shortcuts-container {
+        max-width: 100%;
+    }
+    
+    .shortcut {
+        width: 90px;
+    }
+    
+    .shortcut-icon {
+        width: 48px;
+        height: 48px;
+    }
+}
