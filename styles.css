@@ -3,32 +3,40 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(180deg, #C5D5E8 0%, #D5C9E5 100%);
-    min-height: 100vh;
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #DEE5F8 0%, #EADDFF 100%);
+    /* Light blue-purple */
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     position: relative;
+    overflow: hidden;
+    color: #202124;
 }
 
 /* Top Header */
 .top-header {
     position: absolute;
-    top: 15px;
-    right: 20px;
+    top: 0;
+    right: 0;
+    padding: 16px;
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .header-link {
-    color: rgba(0, 0, 0, 0.87);
+    color: #202124;
     text-decoration: none;
     font-size: 13px;
+    line-height: 24px;
+    padding: 0 4px;
+    margin-right: 4px;
 }
 
 .header-link:hover {
@@ -39,334 +47,430 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
-    color: rgba(0, 0, 0, 0.54);
-    padding: 8px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5f6368;
+    font-size: 20px;
+    transition: background-color 0.2s;
 }
 
 .apps-button:hover {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: rgba(32, 33, 36, 0.059);
 }
 
 .profile-button {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #7B68EE, #9370DB);
+    margin-left: 4px;
+    background: url('https://lh3.googleusercontent.com/ogw/AOh-ky0k_lp-v9rL-r34_iZ7p-v9rL-r34_iZ7p-v9rL=s32-c-mo') no-repeat center/cover, #7B68EE;
+    /* Fallback color */
     border: none;
     cursor: pointer;
+    outline: 4px solid rgba(255, 255, 255, 0);
+    transition: outline 0.2s;
 }
 
 .profile-button:hover {
-    opacity: 0.9;
+    background-color: #f1f3f4;
+    outline: 4px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Main Content */
+/* Main Content Wrapper for Centering */
 .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
+    /* Takes up remaining space to push footer down */
     width: 100%;
-    max-width: 700px;
-    padding: 20px;
+    padding-bottom: 140px;
+    /* Offset for the bottom card visual balance */
 }
 
 /* Google Logo */
 .logo-container {
-    margin-bottom: 28px;
+    margin-bottom: 38px;
 }
 
 .google-logo {
     width: 272px;
     height: 92px;
+    display: block;
 }
 
 /* Search Bar */
 .search-bar {
     display: flex;
     align-items: center;
-    background: white;
-    border-radius: 30px;
-    padding: 12px 20px;
-    width: 100%;
-    max-width: 584px;
-    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.18);
-    margin-bottom: 30px;
-    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    height: 44px;
+    /* Standard Chrome height usually 44-46px */
+    width: 584px;
+    max-width: 90%;
+    padding: 0 14px;
+    margin-bottom: 28px;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Chrome hover is shadow-only mostly, maybe white bg enforcement */
 }
 
 .search-bar:hover {
-    box-shadow: 0 2px 8px rgba(32, 33, 36, 0.28);
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px 1px rgba(32, 33, 36, 0.18);
+    border-color: rgba(223, 225, 229, 0);
 }
 
 .search-icon {
-    font-size: 18px;
     color: #9aa0a6;
+    font-size: 20px;
+    padding-right: 12px;
+    fill: currentColor;
 }
 
 .search-input {
     flex: 1;
     border: none;
     outline: none;
+    font-family: inherit;
     font-size: 16px;
-    color: #202124;
+    color: rgba(0, 0, 0, 0.87);
+    background: transparent;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .search-input::placeholder {
-    color: #9aa0a6;
+    color: #818488;
+    /* Slightly darker than usual for better visibility */
 }
 
 .voice-icon,
 .lens-icon {
-    font-size: 18px;
-    color: #4285f4;
+    width: 24px;
+    /* Touch target */
+    height: 24px;
+    margin: 0 8px;
     cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Simulate the colorful icons */
+.voice-icon {
+    /* Solid color fallback for SVG */
+    color: #4285f4;
+    fill: currentColor;
 }
 
 .ai-mode {
-    background: transparent;
-    border: 1px solid #dadce0;
-    border-radius: 16px;
-    padding: 6px 12px;
-    font-size: 13px;
-    color: #5f6368;
+    font-size: 12px;
+    color: #1a73e8;
+    margin-left: 8px;
     cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
-/* Shortcuts Container */
+
+/* Shortcuts Grid */
 .shortcuts-container {
     display: flex;
-    justify-content: center;
-    gap: 0;
-    margin-bottom: 40px;
     flex-wrap: wrap;
+    justify-content: center;
+    max-width: 590px;
+    gap: 8px 16px;
+    /* Row gap 8px, Col gap 16px */
 }
 
 .shortcut {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     width: 112px;
-    padding: 10px;
-    cursor: pointer;
+    height: 112px;
+    padding: 12px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    color: inherit;
 }
 
 .shortcut:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(32, 33, 36, 0.06);
+    /* Subtle grey hover */
 }
 
 .shortcut-icon {
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
+    background-color: #f1f3f4;
+    /* Default circle bg */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     font-size: 24px;
-    color: white;
-    font-weight: bold;
-}
-
-.gmail-icon {
-    background-color: #E8F0FE;
-    color: #EA4335;
-}
-
-.nextdot-icon {
-    background-color: #5F9B61;
-}
-
-.messenger-icon {
-    background-color: #4F7AB8;
-}
-
-.discord-icon {
-    background-color: #E94235;
-}
-
-.translate-icon {
-    background-color: #A3C4F3;
-}
-
-.facebook-icon {
-    background-color: #4267B2;
-    font-size: 32px;
-    font-family: serif;
-}
-
-.amazon-icon {
-    background-color: #5F9B61;
-}
-
-.https-icon {
-    background-color: #8497B0;
-}
-
-.sports-icon {
-    background-color: #5F9B61;
-}
-
-.add-icon {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #5f6368;
-    font-size: 32px;
+    position: relative;
+    overflow: hidden;
 }
 
 .shortcut-label {
-    font-size: 12px;
+    font-size: 13px;
     color: #202124;
     text-align: center;
-    max-width: 100%;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    width: 100%;
+    font-weight: 400;
+}
+
+/* Icon specific colors to match screenshot vibes */
+.gmail-icon {
+    background: #fff;
+    color: #EA4335;
+    border: 1px solid #f1f3f4;
+    font-size: 20px;
+}
+
+.nextdot-icon {
+    background: #E6F4EA;
+    color: #137333;
+    font-size: 18px;
+}
+
+.messenger-icon {
+    background: linear-gradient(to bottom right, #00C6FF, #0078FF);
+    color: white;
+    border: none;
+    font-size: 20px;
+}
+
+.discord-icon {
+    background: #5865F2;
+    color: white;
+    font-size: 20px;
+}
+
+.translate-icon {
+    background: #E8F0FE;
+    color: #1967D2;
+    font-size: 20px;
+}
+
+.facebook-icon {
+    background: #1877F2;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.amazon-icon {
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 20px;
+    color: #333;
+}
+
+.https-icon {
+    background: #5f6368;
+    color: white;
+    font-size: 20px;
+}
+
+.sports-icon {
+    background: #ceead6;
+    color: #137333;
+}
+
+.add-icon {
+    background: #f1f3f4;
+    color: #202124;
+    font-size: 24px;
+    font-weight: 300;
 }
 
 /* Continue Tabs Card */
 .continue-tabs-card {
     position: absolute;
-    bottom: 20px;
+    bottom: 24px;
+    /* Center mechanically */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
+
+    width: 95%;
+    max-width: 680px;
+
+    /* Styles */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+
     border-radius: 16px;
-    padding: 16px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.12);
+    padding: 16px 4px 8px 4px;
+    /* Matches screenshot structure */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    padding: 0 12px 8px 12px;
 }
 
 .card-title {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
-    color: #202124;
+    color: #5f6368;
+    letter-spacing: 0.1px;
 }
 
 .more-options {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
     color: #5f6368;
     padding: 4px;
     border-radius: 50%;
+    font-size: 18px;
 }
 
 .more-options:hover {
-    background-color: rgba(0, 0, 0, 0.06);
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 .tabs-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
 }
 
 .tab-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 10px 16px;
+    margin: 0 4px;
+    /* Indent slightly */
+    border-radius: 30px;
+    /* Highly rounded as in modern UI */
     cursor: pointer;
+    transition: background-color 0.1s;
+    position: relative;
 }
 
 .tab-item:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+    background-color: rgba(32, 33, 36, 0.06);
 }
 
+/* The favicons in the screenshot are squares with rounded corners, or circles? 
+   Usually squares with rounded corners in tab switcher. */
 .tab-favicon {
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    /* Soft square */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
     font-weight: bold;
     color: white;
+    font-size: 14px;
+    margin-right: 16px;
     flex-shrink: 0;
 }
 
 .red-favicon {
-    background-color: #EA4335;
+    background: #EA4335;
 }
 
 .green-favicon {
-    background-color: #5F9B61;
+    background: #34A853;
 }
 
 .orange-favicon {
-    background-color: #F4B400;
+    background: #FBBC05;
 }
 
 .google-favicon {
-    background-color: #4285F4;
+    background: white;
+    border: 1px solid #ddd;
+    color: #4285F4;
 }
 
 .tab-info {
     flex: 1;
-    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .tab-title {
-    font-size: 13px;
+    font-size: 14px;
     color: #202124;
-    margin-bottom: 2px;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    font-weight: 400;
+    margin-bottom: 2px;
 }
 
 .tab-meta {
-    font-size: 11px;
+    font-size: 12px;
     color: #5f6368;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .see-more-button {
-    width: 100%;
-    margin-top: 8px;
-    padding: 8px;
-    background: none;
-    border: none;
+    align-self: flex-start;
+    margin: 8px 12px 8px 16px;
+    padding: 8px 16px;
+    background: #e8f0fe00;
+    /* transparent initially */
     color: #1a73e8;
+    border: 1px solid #dadce0;
+    border-radius: 18px;
     font-size: 13px;
+    /* Smaller text */
     font-weight: 500;
     cursor: pointer;
-    border-radius: 4px;
+    transition: background 0.2s;
 }
 
 .see-more-button:hover {
-    background-color: rgba(26, 115, 232, 0.08);
+    background-color: #E8F0FE;
+    border-color: #E8F0FE;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 700px) {
     .shortcuts-container {
-        max-width: 100%;
+        display: none;
+        /* Often hidden on very small screens or becomes swipeable */
     }
-    
-    .shortcut {
-        width: 90px;
-    }
-    
-    .shortcut-icon {
-        width: 48px;
-        height: 48px;
+
+    .continue-tabs-card {
+        width: 100%;
+        bottom: 0;
+        border-radius: 16px 16px 0 0;
     }
 }
